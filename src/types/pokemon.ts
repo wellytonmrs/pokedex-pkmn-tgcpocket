@@ -13,7 +13,7 @@ export interface Deck {
   id: string;
   name: string;
   cards: PokemonCard[];
-  createdAt: Date;
+  imageUrl: string;
 }
 
 export enum PackName {
@@ -21,4 +21,5 @@ export enum PackName {
   Mewtwo = 'mewtwo',
   Pikachu = 'pikachu',
   Mew = 'mew',
+  Promo = 'promo',
 }

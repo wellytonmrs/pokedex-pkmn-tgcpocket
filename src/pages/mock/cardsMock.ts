@@ -3720,5 +3720,341 @@ export const cardsData: PokemonCard[] = [
         "type": "psychic",
         "rarity": "CrownRare",
         "ex": true
+    },
+    {
+        "id": "Promo-A_1",
+        "name": "Potion",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_001_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_2",
+        "name": "X Speed",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_002_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_3",
+        "name": "Hand Scope",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_003_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_4",
+        "name": "Pokédex",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_004_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_5",
+        "name": "Poké Ball",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_005_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_6",
+        "name": "Red Card",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_006_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_7",
+        "name": "Professor's Research",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_007_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "supporter",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_8",
+        "name": "Pokédex",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_008_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "item",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_9",
+        "name": "Pikachu",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_009_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "lightning",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_10",
+        "name": "Mewtwo",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_010_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "psychic",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_11",
+        "name": "Chansey",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_011_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "colorless",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_12",
+        "name": "Meowth",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_012_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "colorless",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_13",
+        "name": "Butterfree",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_013_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "grass",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_14",
+        "name": "Lapras ex",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_014_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "water",
+        "rarity": "promo",
+        "ex": true
+    },
+    {
+        "id": "Promo-A_15",
+        "name": "Pikachu",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_015_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "lightning",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_16",
+        "name": "Clefairy",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_016_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "psychic",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_17",
+        "name": "Mankey",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_017_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "fighting",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_18",
+        "name": "Venusaur",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_018_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "grass",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_19",
+        "name": "Greninja",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_019_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "water",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_20",
+        "name": "Haunter",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_020_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "psychic",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_21",
+        "name": "Onix",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_021_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "fighting",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_22",
+        "name": "Jigglypuff",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_022_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "colorless",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_23",
+        "name": "Bulbasaur",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_023_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "grass",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_24",
+        "name": "Magnemite",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_024_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "lightning",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_25",
+        "name": "Moltres ex",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_025_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "fire",
+        "rarity": "promo",
+        "ex": true
+    },
+    {
+        "id": "Promo-A_26",
+        "name": "Pikachu",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_026_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "lightning",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_27",
+        "name": "Snivy",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_027_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "grass",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_28",
+        "name": "Volcarona",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_028_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "fire",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_29",
+        "name": "Blastoise",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_029_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "water",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_30",
+        "name": "Eevee",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_030_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "colorless",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_31",
+        "name": "Cinccino",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_031_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "colorless",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_32",
+        "name": "Charmander",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_032_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "fire",
+        "rarity": "promo",
+        "ex": false
+    },
+    {
+        "id": "Promo-A_33",
+        "name": "Squirtle",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/P-A/P-A_033_EN.webp",
+        "owned": false,
+        "packs": [PackName.Promo],
+        "type": "water",
+        "rarity": "promo",
+        "ex": false
     }
+
 ];
+
+
+
+
+
