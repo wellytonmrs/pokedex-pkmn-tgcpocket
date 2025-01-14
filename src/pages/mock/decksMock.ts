@@ -63,8 +63,8 @@ export const decksData: Deck[] = [
       "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/A1a/A1a_018_EN.webp",
   },
   {
-    id: "gyarados-ex",
-    name: "Gyarados Ex Deck",
+    id: "pikachu-ex",
+    name: "Pikachu Ex Deck",
     cards: [
       findCardById("A1_104")!,
       findCardById("A1_104")!,
@@ -91,9 +91,3 @@ export const decksData: Deck[] = [
       "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/A1/A1_096_EN.webp",
   },
 ];
-
-// Mock API call for fetching decks
-export const fetchDecks = async (): Promise<Deck[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate network latency
-  return decksData;
-};

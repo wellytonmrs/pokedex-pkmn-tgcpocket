@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { Card } from "../components/ui/Card";
-import { fetchDecks } from "./mock/decksMock";
 import { Badge } from "../components/ui/Badge";
+import { Card } from "../components/ui/Card";
+import { fetchDecks } from "../services/fetchDecks";
 
 export default function DeckDetailPage() {
   const { deckId } = useParams<{ deckId: string }>();

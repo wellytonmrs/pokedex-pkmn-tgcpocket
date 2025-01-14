@@ -1,17 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMemo, useState, useCallback } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
+import { fetchCards } from "../services/fetchCards";
 import { useCardStore } from "../store/useCardStore";
-import { PokemonCard } from "../types/pokemon";
-import { cardsData } from "./mock/cardsMock";
-
-// Mock API call with Zustand store initialization
-const fetchCards = async (): Promise<PokemonCard[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return cardsData;
-};
 
 export default function LibraryPage() {
   const [searchTerm, setSearchTerm] = useState("");
