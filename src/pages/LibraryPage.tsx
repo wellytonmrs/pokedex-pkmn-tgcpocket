@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
+import { useCardStore } from "../store/useCardStore";
 import { PokemonCard } from "../types/pokemon";
 import { cardsData } from "./mock/cardsMock";
-import { useCardStore } from "../store/useCardStore";
 
-// Mock API call
+// Mock API call with Zustand store initialization
 const fetchCards = async (): Promise<PokemonCard[]> => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return cardsData;
@@ -17,35 +17,54 @@ export default function LibraryPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const { cards, setCards, toggleOwnership } = useCardStore();
 
+  // Memoized search term in lowercase
+  const lowerSearchTerm = useMemo(() => searchTerm.toLowerCase(), [searchTerm]);
+
   // React Query - Fetch data
-  const { data, isLoading, isError } = useQuery({
+  const { isLoading, isError, refetch } = useQuery({
     queryKey: ["cards"],
-    queryFn: fetchCards,
+    queryFn: async () => {
+      const cards = await fetchCards();
+      setCards(cards);
+      return cards;
+    },
+    refetchOnWindowFocus: false,
   });
 
-  // Update store when data changes
-  useEffect(() => {
-    if (data) {
-      setCards(data);
+  // Memoized filtered cards with type safety
+  const filteredCards = useMemo(() => {
+    if (!cards || !(cards instanceof Map)) {
+      return [];
     }
-  }, [data, setCards]);
 
-  // Filter cards
-  const filteredCards = Array.from(cards.keys())
-    .map((key) => cards.get(key))
-    .filter((card) =>
-      card?.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((card): card is PokemonCard => card !== undefined);
+    return Array.from(cards.values()).filter(
+      (card) => card && card.name.toLowerCase().includes(lowerSearchTerm)
+    );
+  }, [cards, lowerSearchTerm]);
 
-  // Loading state
+  // Handle search input change
+  const handleSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    },
+    []
+  );
+
+  // Loading state with spinner
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="spinner">Loading...</div>;
   }
 
-  // Error state
+  // Error state with retry action
   if (isError) {
-    return <div>Error loading cards. Please try again later.</div>;
+    return (
+      <div>
+        <p>Error loading cards. Please try again later.</p>
+        <Button onClick={() => refetch()} variant="outline">
+          Retry
+        </Button>
+      </div>
+    );
   }
 
   // Main page render
@@ -59,17 +78,29 @@ export default function LibraryPage() {
               type="text"
               placeholder="Search cards..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
               className="pl-10"
             />
           </div>
           <Button variant="outline">Filter</Button>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {filteredCards.map((card) => (
-          <Card key={card.id} card={card} onToggleOwnership={toggleOwnership} />
-        ))}
+      <div
+        className=" grid 
+        grid-cols-[repeat(auto-fit,_minmax(80px,_1fr))] 
+        sm:grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] 
+        md:grid-cols-[repeat(auto-fit,_minmax(210px,_1fr))] 
+        gap-4"
+      >
+        {filteredCards && filteredCards.length > 0 ? (
+          filteredCards.map((card) => (
+            <div key={card.id} className="flex justify-center">
+              <Card card={card} onToggleOwnership={toggleOwnership} />
+            </div>
+          ))
+        ) : (
+          <div>No cards found</div>
+        )}
       </div>
     </div>
   );

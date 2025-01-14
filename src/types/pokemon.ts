@@ -7,6 +7,7 @@ export interface PokemonCard {
   owned: boolean;
   packs: PackName[];
   ex: boolean;
+  qtd?: number;
 }
 
 export interface Deck {

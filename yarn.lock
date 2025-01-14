@@ -896,6 +896,13 @@ chokidar@^3.6.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+class-variance-authority@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz"
+  integrity sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==
+  dependencies:
+    clsx "^2.1.1"
+
 clsx@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz"
@@ -1640,6 +1647,7 @@ pirates@^4.0.1:
   resolved "file:"
   dependencies:
     "@tanstack/react-query" "^5.63.0"
+    class-variance-authority "^0.7.1"
     clsx "^2.1.1"
     lucide-react "^0.471.0"
     pokedexpokemontcgpocket "file:"

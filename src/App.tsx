@@ -12,7 +12,8 @@ import { useAuthStore } from "./store/useAuthStore";
 
 // Dynamically import pages for code splitting
 const LibraryPage = React.lazy(() => import("./pages/LibraryPage"));
-//const DeckPage = React.lazy(() => import('./pages/DeckPage'));
+const DeckPage = React.lazy(() => import("./pages/DeckPage"));
+const DeckDetailPage = React.lazy(() => import("./pages/DeckDetailPage"));
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
@@ -21,7 +22,8 @@ const queryClient = new QueryClient();
 const routes = [
   { path: "/", element: <LoginForm />, isPrivate: false },
   { path: "/library", element: <LibraryPage />, isPrivate: true },
-  // { path: "/decks", element: <DeckPage />, isPrivate: true },
+  { path: "/decks", element: <DeckPage />, isPrivate: true },
+  { path: "/deck/:deckId", element: <DeckDetailPage />, isPrivate: true },
 ];
 
 function PrivateRoute({
