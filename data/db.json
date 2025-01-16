@@ -1,0 +1,44 @@
+{
+    "cards": [
+      {
+        "id": "A1_001",
+        "name": "Bulbasaur",
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/A1/A1_001_EN.webp",
+        "owned": false,
+        "packs": ["charizard", "mewtwo", "pikachu", "mew"],
+        "type": "grass",
+        "rarity": "1Diamond",
+        "ex": false
+      }
+    ],
+    "decks": [
+      {
+        "id": "mewtwo-ex",
+        "name": "Mewtwo Ex Deck",
+        "cards": [
+          "A1_127",
+          "A1_130",
+          "A1_130",
+          "A1_131",
+          "A1_131",
+          "A1_132",
+          "A1_132",
+          "A1_129",
+          "A1_129",
+          "A1a_065",
+          "A1a_065",
+          "A1_223",
+          "A1a_068",
+          "A1_225",
+          "Promo-A_5",
+          "Promo-A_5",
+          "Promo-A_6",
+          "Promo-A_2",
+          "Promo-A_7",
+          "Promo-A_7"
+        ],
+        "imageUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/pocket/A1/A1_129_EN.webp"
+      }
+    ],
+    "ownedCards": []
+  }

@@ -1,7 +1,9 @@
-import { cardsData } from "../pages/mock/cardsMock";
 import { PokemonCard } from "../types/pokemon";
 
 export const fetchCards = async (): Promise<PokemonCard[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return cardsData;
+  const response = await fetch("http://localhost:3001/cards");
+  if (!response.ok) {
+    throw new Error("Failed to fetch cards");
+  }
+  return response.json();
 };
