@@ -1,7 +1,9 @@
-import { decksData } from "../pages/mock/decksMock";
 import { Deck } from "../types/pokemon";
 
 export const fetchDecks = async (): Promise<Deck[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return decksData;
+  const response = await fetch("http://localhost:3001/decks");
+  if (!response.ok) {
+    throw new Error("Failed to fetch decks");
+  }
+  return response.json();
 };
