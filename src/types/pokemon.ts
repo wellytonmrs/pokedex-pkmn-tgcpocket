@@ -4,7 +4,6 @@ export interface PokemonCard {
   imageUrl: string;
   type: string;
   rarity: string;
-  owned: boolean;
   packs: PackName[];
   ex: boolean;
   qtd?: number;
@@ -18,9 +17,9 @@ export interface Deck {
 }
 
 export enum PackName {
-  Charizard = 'charizard',
-  Mewtwo = 'mewtwo',
-  Pikachu = 'pikachu',
-  Mew = 'mew',
-  Promo = 'promo',
+  Charizard = "charizard",
+  Mewtwo = "mewtwo",
+  Pikachu = "pikachu",
+  Mew = "mew",
+  Promo = "promo",
 }
