@@ -97,7 +97,7 @@ export default function DeckPage() {
               <div className="w-full flex justify-center">
                 <img
                   src={deck.imageUrl}
-                  alt={`${deck.cards[0].name} card`}
+                  alt={`${deck.cards[0]} card`}
                   className="max-w-full h-auto object-contain"
                 />
               </div>

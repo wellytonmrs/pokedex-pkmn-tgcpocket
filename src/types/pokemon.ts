@@ -12,7 +12,7 @@ export interface PokemonCard {
 export interface Deck {
   id: string;
   name: string;
-  cards: PokemonCard[];
+  cards: string[];
   imageUrl: string;
 }
 

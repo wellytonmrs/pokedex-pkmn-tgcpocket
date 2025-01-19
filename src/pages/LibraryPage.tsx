@@ -181,10 +181,12 @@ export default function LibraryPage() {
 
       <div
         className="grid 
-        grid-cols-[repeat(auto-fit,_minmax(80px,_1fr))] 
-        sm:grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] 
-        md:grid-cols-[repeat(auto-fit,_minmax(210px,_1fr))] 
-        gap-4"
+       grid-cols-[repeat(auto-fill,_minmax(80px,_1fr))] 
+       sm:grid-cols-[repeat(auto-fill,_minmax(160px,_1fr))] 
+       md:grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))]
+       lg:grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))]
+       xl:grid-cols-[repeat(auto-fill,_minmax(220px,_1fr))]
+       gap-4"
       >
         {filteredCards && filteredCards.length > 0 ? (
           filteredCards.map((card) => {
