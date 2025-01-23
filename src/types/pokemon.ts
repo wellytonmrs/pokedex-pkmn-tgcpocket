@@ -1,12 +1,24 @@
+export interface Ability {
+  info: string;
+  effect: string;
+}
+
 export interface PokemonCard {
   id: string;
+  setId: string;
+  number: string;
   name: string;
-  imageUrl: string;
-  type: string;
+  set_code: string;
+  set_name: string;
   rarity: string;
-  packs: PackName[];
-  ex: boolean;
-  qtd?: number;
+  color: string;
+  type: string;
+  hp: string;
+  stage: string;
+  prew_stage_name: string;
+  ability: Ability[];
+  weakness: string;
+  retreat: string;
 }
 
 export interface Deck {
