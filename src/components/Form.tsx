@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { useAuthStore } from "../store/useAuthStore";
 import SignUpForm from "./SignUpForm";
 
@@ -56,6 +56,17 @@ export default function Form() {
     setUsername(newUsername);
     setPassword(newPassword);
     setIsSignUpOpen(false);
+  }
+
+  const googleSuccess = (res: CredentialResponse) => {
+    console.log(res);
+  }
+
+  const googleError = () => {
+    console.error("Google Sign In was unsucessful:", error);
+    setError("Google Sign In was unsucessful. Try again later.");
+    setUsername("");
+    setPassword("");
   }
 
   return (
@@ -121,14 +132,22 @@ export default function Form() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl ${
-                isLoading ? "bg-gray-400" : "bg-violet-500"
-              } text-white text-lg font-bold`}
+              className={`active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl ${isLoading ? "bg-gray-400" : "bg-violet-500"
+                } text-white text-lg font-bold`}
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
-          </div>
 
+            <GoogleOAuthProvider clientId="">
+              <div className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl">
+                <GoogleLogin
+                  onSuccess={googleSuccess}
+                  onError={googleError}
+                />
+              </div>
+            </GoogleOAuthProvider>
+
+          </div>
           <div className="flex mt-8 justify-center items-center">
             <p className="font-medium text-base">Don't have an account?</p>
             <button
