@@ -26,3 +26,6 @@ dist-ssr
 .vercel
 src/.IA
 yarn.lock
+.env
+yarn.lock
+package-lock.json

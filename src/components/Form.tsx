@@ -1,13 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
+import {
+  CredentialResponse,
+  GoogleLogin,
+  GoogleOAuthProvider,
+} from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
+import { GoogleUser } from "../services/authService";
 import { useAuthStore } from "../store/useAuthStore";
 import SignUpForm from "./SignUpForm";
+
+// Define the structure of the decoded JWT
 
 export default function Form() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -15,15 +22,12 @@ export default function Form() {
   const navigate = useNavigate();
 
   const loginUser = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
     try {
       await login(username, password);
-      if (remember) {
-        localStorage.setItem(
-          "dexpkmtgcpkt-info",
-          JSON.stringify({ username, password })
-        );
-      }
-      navigate("/library");
+      localStorage.setItem("dexpkmtgcpkt-info", JSON.stringify({ username }));
+      navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
       setError("The username or password entered are invalid.");
@@ -32,9 +36,9 @@ export default function Form() {
     } finally {
       setIsLoading(false);
     }
-  }, [navigate, password, remember, username]);
+  }, [navigate, password, username, login]);
 
-  // Check if user is already logged in using "Remember Me"
+  /*
   useEffect(() => {
     const savedUser = localStorage.getItem("dexpkmtgcpkt-info");
     if (savedUser) {
@@ -44,11 +48,10 @@ export default function Form() {
       loginUser();
     }
   }, [loginUser, navigate]);
+  */
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setIsLoading(true);
-    setError(null);
     await loginUser();
   }
 
@@ -58,16 +61,28 @@ export default function Form() {
     setIsSignUpOpen(false);
   }
 
-  const googleSuccess = (res: CredentialResponse) => {
-    console.log(res);
-  }
+  const googleSuccess = async (response: CredentialResponse) => {
+    setIsLoading(true);
+    try {
+      const decoded: GoogleUser = jwtDecode<GoogleUser>(response.credential!);
+      const { email, name, picture } = decoded;
+
+      await login(undefined, undefined, { email, name, picture });
+      navigate("/");
+    } catch (error) {
+      console.error("Failed to decode JWT or login with Google:", error);
+      setError("Google Sign In failed. Try again later.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const googleError = () => {
-    console.error("Google Sign In was unsucessful:", error);
+    console.error("Google Sign In was unsucessful:");
     setError("Google Sign In was unsucessful. Try again later.");
     setUsername("");
     setPassword("");
-  }
+  };
 
   return (
     <>
@@ -110,20 +125,6 @@ export default function Form() {
             />
           </div>
 
-          <div className="mt-8 flex justify-between items-center">
-            <div>
-              <input
-                type="checkbox"
-                id="remember"
-                checked={remember}
-                onChange={(e) => setRemember(e.target.checked)}
-              />
-              <label htmlFor="remember" className="ml-2 font-medium text-base">
-                Remember
-              </label>
-            </div>
-          </div>
-
           {error && (
             <div className="mt-4 text-red-500 font-medium text-sm">{error}</div>
           )}
@@ -132,21 +133,18 @@ export default function Form() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl ${isLoading ? "bg-gray-400" : "bg-violet-500"
-                } text-white text-lg font-bold`}
+              className={`active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl ${
+                isLoading ? "bg-gray-400" : "bg-violet-500"
+              } text-white text-lg font-bold`}
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
 
-            <GoogleOAuthProvider clientId="">
+            <GoogleOAuthProvider clientId={import.meta.env.VITE_G_OA_CLIID}>
               <div className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl">
-                <GoogleLogin
-                  onSuccess={googleSuccess}
-                  onError={googleError}
-                />
+                <GoogleLogin onSuccess={googleSuccess} onError={googleError} />
               </div>
             </GoogleOAuthProvider>
-
           </div>
           <div className="flex mt-8 justify-center items-center">
             <p className="font-medium text-base">Don't have an account?</p>

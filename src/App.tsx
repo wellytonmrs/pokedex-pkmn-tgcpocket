@@ -20,8 +20,8 @@ const queryClient = new QueryClient();
 
 // Routes configuration
 const routes = [
-  { path: "/", element: <LoginForm />, isPrivate: false },
-  { path: "/library", element: <LibraryPage />, isPrivate: true },
+  { path: "/login", element: <LoginForm />, isPrivate: false },
+  { path: "/", element: <LibraryPage />, isPrivate: true },
   { path: "/decks", element: <DeckPage />, isPrivate: true },
   { path: "/deck/:deckId", element: <DeckDetailPage />, isPrivate: true },
 ];
@@ -34,7 +34,7 @@ function PrivateRoute({
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   if (!isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   return <>{children}</>;

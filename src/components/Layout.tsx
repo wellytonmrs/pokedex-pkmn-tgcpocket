@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../store/useAuthStore';
-import { Library, LayoutGrid, LogOut } from 'lucide-react';
+import { ReactNode } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/useAuthStore";
+import { Library, LayoutGrid, LogOut } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export function Layout({ children }: LayoutProps) {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/login");
   };
 
   return (
@@ -23,7 +23,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex justify-between h-16">
             <div className="flex">
               <Link
-                to="/library"
+                to="/"
                 className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-blue-600"
               >
                 <Library className="h-5 w-5 mr-2" />
@@ -44,13 +44,29 @@ export function Layout({ children }: LayoutProps) {
                   <span className="text-sm text-gray-700 mr-4">
                     Welcome, {user.username}
                   </span>
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center"
-                  >
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Logout
-                  </button>
+                  <div className="flex items-center">
+                    {user.picture ? (
+                      <img
+                        src={user.picture}
+                        alt={user.username}
+                        className="h-8 w-8 rounded-full mr-4"
+                      />
+                    ) : (
+                      <div className="h-8 w-8 rounded-full bg-gray-400 flex items-center justify-center mr-4">
+                        <span className="text-white text-lg font-semibold">
+                          {user.username.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </button>
+                  </div>
                 </>
               )}
             </div>
